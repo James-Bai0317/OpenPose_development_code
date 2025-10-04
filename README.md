@@ -1,0 +1,2 @@
+# OpenPose_development_code
+這是供給於學弟妹們持續研究OpenPose的開源初始碼，可發揮各自的創意持續擴充相關模組
