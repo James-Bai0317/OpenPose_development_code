@@ -348,7 +348,7 @@ class BoxingDefenseDetector:
             return {
                 "type": DefenseType.SLIP.value,
                 "name": f"潜避 ({direction})",
-                "confidence": confidence,
+                "confidence": round(confidence,3),
                 "effectiveness": self.defense_configs["slip"].effectiveness,
                 "direction": direction,
                 "counters": ["hook_punch"]
@@ -405,7 +405,7 @@ class BoxingDefenseDetector:
                 return {
                     "type": DefenseType.SHELL_GUARD.value,
                     "name": "貝殼防禦",
-                    "confidence": confidence,
+                    "confidence": round(confidence,3),
                     "effectiveness": config.effectiveness,
                     "hands": "both",
                     "counters": ["uppercut_punch"]
@@ -482,8 +482,8 @@ class BoxingDefenseDetector:
 
             return {
                 "type": DefenseType.BLOCK.value,
-                "name": f"{hand}手格挡",
-                "confidence": confidence,
+                "name": f"{hand}手格擋",
+                "confidence": round(confidence,3),
                 "effectiveness": config.effectiveness,
                 "hands": hand,
                 "counters": ["straight_punch"]
@@ -536,7 +536,7 @@ class BoxingDefenseDetector:
             return {
                 "type": DefenseType.BLOCK.value,
                 "name": "雙手格擋",
-                "confidence": confidence,
+                "confidence": round(confidence,3),
                 "effectiveness": config.effectiveness * 1.1,  # 雙手格擋效果更好
                 "hands": "both",
                 "counters": ["straight_punch"]  # 對抗直拳
