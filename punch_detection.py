@@ -304,12 +304,6 @@ class BoxingActionDetector:
                 # 最終置信度不超過1.0
                 final_confidence = min(base_confidence, 1.0)
 
-                if punch_valid:
-                    print(
-                        f"  {punch_name} - Valid! Confidence: {final_confidence:.3f} (angle:{angle_score:.3f}, pos_bonus:{position_bonus:.3f})")
-                else:
-                    print(f"  {punch_name} - Invalid (angle_score:{angle_score:.3f})")
-
                 if not punch_valid:
                     continue
 
@@ -330,9 +324,6 @@ class BoxingActionDetector:
                         }
                     }
                     best_confidence = final_confidence
-
-            if best_punch:
-                print(f"Best punch selected: {best_punch['punch_type']} with confidence {best_punch['confidence']}")
 
             return best_punch
 
