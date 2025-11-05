@@ -272,10 +272,6 @@ class BoxingActionDetector:
 
             # 改進的角度評分系統
             angle_scores = self._calculate_angle_scores(arm_angle)
-            print(
-                f"Player {person_id} {hand} arm - Angle: {arm_angle:.1f}°, Extension: {arm_extension:.1f}, Velocity: {velocity:.3f}")
-            print(
-                f"Angle scores - Straight: {angle_scores['straight']:.3f}, Hook: {angle_scores['hook']:.3f}, Uppercut: {angle_scores['uppercut']:.3f}")
 
             # 降低基本攻擊條件的門檻
             min_extension = 40  # 降低最小伸展要求
