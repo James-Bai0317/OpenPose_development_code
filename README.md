@@ -11,5 +11,6 @@
 
 <img width="1513" height="3840" alt="Untitled diagram _ Mermaid Chart-2025-10-04-082852" src="https://github.com/user-attachments/assets/905787a4-1f97-4493-be49-8d82e84e7cd9" />
 
+<img width="888" height="2184" alt="image" src="https://github.com/user-attachments/assets/e3bb6ae4-536b-4b1f-8ccf-9fb0cbfc7601" />
 
 為整體系統執行的流程圖
