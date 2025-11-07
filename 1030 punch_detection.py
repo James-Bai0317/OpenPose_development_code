@@ -366,7 +366,7 @@ class BoxingActionDetector:
     # 調整各種拳擊參數與邏輯的地方，從這裡更改
     @staticmethod
     def _validate_straight_punch(keypoints, person_id: int, hand: str,
-                                 wrist_y_offset: float,
+                                 wrist_x_offset: float, wrist_y_offset: float,
                                  shoulder_width: Optional[float]) -> Tuple[bool, float]:
         """驗證直拳的空間位置特徵"""
         person_keypoints = keypoints[person_id]
@@ -410,9 +410,9 @@ class BoxingActionDetector:
         return True, position_bonus
 
     @staticmethod
-    def _validate_hook_punch(hand: str,
-                             wrist_x_offset: float, wrist_y_offset: float,
-                             shoulder_width: Optional[float]) -> Tuple[bool, float]:
+    def _validate_hook_punch(keypoints, person_id: int, hand: str,
+                              wrist_x_offset: float, wrist_y_offset: float,
+                              shoulder_width: Optional[float]) -> Tuple[bool, float]:
         """驗證勾拳的空間位置特徵"""
 
 
@@ -442,7 +442,7 @@ class BoxingActionDetector:
 
     @staticmethod
     def _validate_uppercut_punch(keypoints, person_id: int, hand: str,
-                                 wrist_x_offset: float,
+                                 wrist_x_offset: float, wrist_y_offset: float,
                                  shoulder_width: Optional[float]) -> Tuple[bool, float]:
         """驗證上勾拳的空間位置特徵"""
         person_keypoints = keypoints[person_id]
@@ -720,7 +720,6 @@ class ComprehensiveVisualizer:
 
     def __init__(self, show_skeleton=True, show_debug=True):
         self.attack_visualizer = BoxingVisualizer(show_skeleton, show_debug)
-        super().__init__(show_skeleton, show_debug)
         self.defense_visualizer = BoxingDefenseVisualizer(show_skeleton, show_debug)
         self.last_frame_time = time.time()
 
