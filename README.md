@@ -14,3 +14,7 @@
 <img width="888" height="2184" alt="image" src="https://github.com/user-attachments/assets/e3bb6ae4-536b-4b1f-8ccf-9fb0cbfc7601" />
 
 為整體系統執行的流程圖
+
+ ![程式碼流程圖](https://github.com/user-attachments/assets/a72d4096-2608-4772-b7b8-a5212f2df467)
+
+ 為整體程式流程圖
