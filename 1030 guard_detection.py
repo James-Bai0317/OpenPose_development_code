@@ -266,7 +266,7 @@ class BoxingDefenseDetector:
         # 判斷為穩定站姿的條件
         is_current_stable = (
                 shoulder_y_diff < shoulder_width * 0.1 and  # 肩膀水平
-                not hands_near_head  # 手不在头部附近
+                not hands_near_head  # 手不在頭部附近
         )
 
         if is_current_stable:
@@ -275,7 +275,7 @@ class BoxingDefenseDetector:
                 self.is_stable_stance[person_id] = True
                 self.neck_y_history[person_id].append(neck[1])
 
-                # 计算基准身高
+                # 計算基準身高
                 if len(self.neck_y_history[person_id]) >= 5:
                     self.base_neck_y[person_id] = np.median(self.neck_y_history[person_id])
         else:
@@ -290,7 +290,7 @@ class BoxingDefenseDetector:
         right_elbow_angle = calculate_normalized_angle(
             keypoints, [RIGHT_SHOULDER, RIGHT_ELBOW, RIGHT_WRIST], person_id)
 
-        # 使用angle.py計算肩寬作为正規化基準
+        # 使用angle.py計算肩寬作為正規化基準
         shoulder_width = calculate_shoulder_width(keypoints, person_id)
 
         # 獲取關鍵點用於位置判斷
@@ -366,7 +366,7 @@ class BoxingDefenseDetector:
                 # 速度越快分數越高（上限為肩寬的15%/幀）
                 velocity_score = min(normalized_velocity / 0.15, 1.0)
 
-            # 3. 加速度分數（新增）
+            # 3. 加速度分數
             acceleration_score = 0.5  # 預設值
             if len(self.neck_y_velocity[person_id]) >= 4:
                 velocities = list(self.neck_y_velocity[person_id])
@@ -512,14 +512,14 @@ class BoxingDefenseDetector:
 
         config = self.defense_configs["block"]
 
-        # 检测右手格挡
+        # 檢測右手格擋
         right_block = self._detect_single_hand_block(
             keypoints_dict, "right", right_angle, config, shoulder_width
         )
         if right_block:
             return right_block
 
-        # 检测左手格挡
+        # 檢測左手格擋
         left_block = self._detect_single_hand_block(
             keypoints_dict, "left", left_angle, config, shoulder_width
         )
